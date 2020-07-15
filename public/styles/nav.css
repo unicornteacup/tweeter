@@ -3,7 +3,10 @@ nav {
   display: block;
   background-color: #4056A1;
   color: #FFFFFF; 
-  padding: 1.5em
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 span {

@@ -1,13 +1,13 @@
 .tweets {
   display: flex;
-  flex-direction: row;
-  border: 3px solid gray;
+  flex-direction: column;
+
   background-color: #f4f1ec;
   font-family: 'Sourse sans Pro', sans-serif;
   font-weight: 300;
 }
 
-.tweets:hover {
+article:hover {
   box-shadow: 10px 10px lightgray;
   font-weight: 400;
 }
@@ -20,6 +20,8 @@
 }
 
 article {
+  border: 3px solid gray;
+  margin-bottom: 15px;
   width: 100%;
 }
 
@@ -39,7 +41,6 @@ article {
   display: none;
 }
 
-
 .tweets footer {
   display: flex;
   flex-direction: row;
@@ -55,8 +56,6 @@ article {
   margin-bottom: 5px;
   border-top: 3px solid gray;
 }
-
-
 
 .tweets h3 {
   display: flex;

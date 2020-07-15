@@ -11,7 +11,6 @@ $(document).ready(function() {
       $('output').css('color', 'red');
     }
     $('output').val(140 - tweetChars);
-
   }) 
 
 });

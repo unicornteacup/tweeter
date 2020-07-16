@@ -1,35 +1,15 @@
 
 
-
-
 $(document).ready(function() {
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
 
-
+  console.log("doc test");
   $("time.timeago").timeago();
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
   const createTweetElement = function(tweet) {
     let created = $.timeago(new Date(tweet.created_at))
@@ -41,7 +21,7 @@ $(document).ready(function() {
       </div>
       <p class="user-id">${tweet.user.handle}</p>
     </header>
-    <h3>${tweet.content.text}</h3>
+    <h3>${escape(tweet.content.text)}</h3>
     <footer>
       <p class="created">${created}</p>
       <p>
@@ -50,35 +30,44 @@ $(document).ready(function() {
       </p>
     </footer>
   </article>`);
-     
   };
 
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
       const latestTweet = createTweetElement(tweet)
-      console.log(latestTweet)
+      // console.log(latestTweet)
       $('.tweets').prepend(latestTweet);
     }
-    console.log(tweets)
+    // console.log(tweets)
   }
 
-  $(function() {
+  
     const $button = $('form');
     $button.submit (function ( event ) {
       event.preventDefault();
+      console.log($('#tweet-text').val().length)
       if ($('#tweet-text').val().length < 1) {
-        alert("error message: No tweet present");
+        $('.error').slideDown(400, function(){});
+        $('.error p').text('⚠️ No text present ⚠️');
+        //alert("error message: No tweet present");
       } else if ($('#tweet-text').val().length > 140) {
-        alert("error message: Tweet length is over 140 characters");
+        $('.error').slideDown(400, function(){});
+        $('.error p').text('⚠️ Tweet length is over 140 characters ⚠️');
+        // alert("error message: Tweet length is over 140 characters");
       }else {
+        $('.error').slideUp(400, function(){});
+        $('.counter').text('140');
         let newTweet = $('form #tweet-text').serialize();
-
-        // console.log(newTweet);
-        $.post('/tweets', newTweet, function(resultData) { loadTweets(); }
-        );
+        $.post('/tweets', newTweet, function(resultData) { loadTweets(); })
+        .then(function () {
+          $('#tweet-text').val('');
+        })         
       }
-    });
-  });
+
+});
+
+// *** WHERE TO PUT THIS
+
 
 
 

@@ -62,11 +62,20 @@ $(document).ready(function() {
   $(function() {
     const $button = $('form');
     $button.submit (function ( event ) {
-      let newTweet = $('form #tweet-text').serialize();
       event.preventDefault();
-    console.log(newTweet);
-    $.post('/tweets', newTweet, function(resultData) { loadTweets(); }
-    );
+      if ($('#tweet-text').val().length < 1) {
+        alert("error message: No tweet present");
+      } else if ($('#tweet-text').val().length > 140) {
+        alert("error message: Tweet length is over 140 characters");
+      }else {
+        let newTweet = $('form #tweet-text').serialize();
+
+        console.log(newTweet);
+        $.post('/tweets', newTweet, function(resultData) { loadTweets(); }
+        );
+      }
+
+
     });
   });
 

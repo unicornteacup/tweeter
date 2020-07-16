@@ -40,7 +40,7 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
+  console.log('test');
   return tweetsRoutes;
 
 }

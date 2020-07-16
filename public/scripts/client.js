@@ -3,30 +3,30 @@
 
 
 $(document).ready(function() {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
+  // const data = [
+  //   {
+  //     "user": {
+  //       "name": "Newton",
+  //       "avatars": "https://i.imgur.com/73hZDYK.png"
+  //       ,
+  //       "handle": "@SirIsaac"
+  //     },
+  //     "content": {
+  //       "text": "If I have seen further it is by standing on the shoulders of giants"
+  //     },
+  //     "created_at": 1461116232227
+  //   },
+  //   {
+  //     "user": {
+  //       "name": "Descartes",
+  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
+  //       "handle": "@rd" },
+  //     "content": {
+  //       "text": "Je pense , donc je suis"
+  //     },
+  //     "created_at": 1461113959088
+  //   }
+  // ]
 
 
   $("time.timeago").timeago();
@@ -59,8 +59,49 @@ $(document).ready(function() {
     console.log(tweets)
   }
 
+  $(function() {
+    const $button = $('form');
+    $button.submit (function ( event ) {
+      let newTweet = $('form #tweet-text').serialize();
+      event.preventDefault();
+    console.log(newTweet);
+    $.post('/tweets', newTweet, function(resultData) { loadTweets(); }
+    );
+    });
+  });
 
-  const $tweet = renderTweets(data);
+
+
+
+  // *** Are any of these right???? ***
+
+ 
+  const loadTweets = function() {
+    $.get("/tweets", function(data, status){
+      renderTweets(data);
+    });
+  };
+  loadTweets();
+
+
+  // $(function() {
+  //   const loadTweets = $.ajax('/tweets', { method: 'GET' })
+  //     // console.log(tweets)
+  //     rendertweets(res);
+  
+  //   // loadTweets();
+  // })
+
+  // $(function() {
+  //   const loadTweets = function() {
+  //     $.getJSON('/tweets', tweets, { method: 'GET' })
+  //     console.log(tweets)
+  //     rendertweets(tweets);
+  //   };
+  //   // loadTweets();
+  // })
+
+  // const $tweet = renderTweets(data);
 
 // Test / driver code (temporary)
 // console.log($tweet); // to see what it looks like
@@ -70,6 +111,3 @@ $(document).ready(function() {
 
 
 // Test / driver code (temporary). Eventually will get this from the server.
-
-
-

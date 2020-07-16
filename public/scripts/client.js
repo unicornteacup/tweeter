@@ -34,8 +34,11 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     let created = $.timeago(new Date(tweet.created_at))
     return $(`<article>
-    <header> 
-      <p class="username">${tweet.user.name}</p>
+    <header>
+      <div>
+        <img class="avatar" src="${tweet.user.avatars}"> 
+        <p class="username">${tweet.user.name}</p>
+      </div>
       <p class="user-id">${tweet.user.handle}</p>
     </header>
     <h3>${tweet.content.text}</h3>
@@ -54,7 +57,7 @@ $(document).ready(function() {
     for (let tweet of tweets) {
       const latestTweet = createTweetElement(tweet)
       console.log(latestTweet)
-      $('.tweets').append(latestTweet);
+      $('.tweets').prepend(latestTweet);
     }
     console.log(tweets)
   }
@@ -70,12 +73,10 @@ $(document).ready(function() {
       }else {
         let newTweet = $('form #tweet-text').serialize();
 
-        console.log(newTweet);
+        // console.log(newTweet);
         $.post('/tweets', newTweet, function(resultData) { loadTweets(); }
         );
       }
-
-
     });
   });
 

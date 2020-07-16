@@ -37,6 +37,15 @@ article {
   font-family: 'Sourse sans Pro', sans-serif;
 }
 
+.tweets header .avatar{
+  background-color: #f4f1ec;
+  margin-right: 8px;
+}
+/* .tweets:hover header .avatar{
+  im 
+  : 400;
+} */
+
 .user-id {
   display: none;
 }

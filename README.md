@@ -19,3 +19,9 @@ This repository is the starter code for the project: Students will fork and clon
 - chance ^1.0.2,
 - express ^4.13.4,
 - md5 ^2.1.0
+
+## Screenshots
+
+!["Screenshot of large screen display] (https://github.com/unicornteacup/tweeter/blob/master/docs/tweeter-responsive-large.png?raw=true)
+!["Screenshot of small screen display] (https://github.com/unicornteacup/tweeter/blob/master/docs/tweeter-responsive-small.png?raw=true)
+!["Screenshot of error message display] (https://github.com/unicornteacup/tweeter/blob/master/docs/tweeter-error.png?raw=true)

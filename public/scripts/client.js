@@ -2,7 +2,13 @@
 
 $(document).ready(function() {
 
-  console.log("doc test");
+  const $button2 = $('nav');
+  $button2.on('click',function ( event ) {
+    console.log('click')
+    event.preventDefault();
+    $('form').slideToggle(400, function(){});
+  });
+
   $("time.timeago").timeago();
 
   const escape =  function(str) {
@@ -41,7 +47,9 @@ $(document).ready(function() {
     // console.log(tweets)
   }
 
-  
+
+
+
     const $button = $('form');
     $button.submit (function ( event ) {
       event.preventDefault();
@@ -49,11 +57,9 @@ $(document).ready(function() {
       if ($('#tweet-text').val().length < 1) {
         $('.error').slideDown(400, function(){});
         $('.error p').text('⚠️ No text present ⚠️');
-        //alert("error message: No tweet present");
       } else if ($('#tweet-text').val().length > 140) {
         $('.error').slideDown(400, function(){});
         $('.error p').text('⚠️ Tweet length is over 140 characters ⚠️');
-        // alert("error message: Tweet length is over 140 characters");
       }else {
         $('.error').slideUp(400, function(){});
         $('.counter').text('140');

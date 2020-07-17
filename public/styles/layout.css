@@ -14,23 +14,71 @@ html {
  * Global layout stuff
  */
 
-body {
+/* body {
+  display: flex;
+
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Sourse sans Pro', sans-serif;
-}
+} */
 
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-main {
+/* main {
   margin-top: 50px;
   padding-left: 5%;
   padding-right: 5%;
   flex-direction: row;
   align-items: center;
-  background-color: #f4f1ec;
+  background-color: #f4f1ec; */
+/* } */
+
+@media only screen and (max-width: 768px) {
+  body {
+    display: block;
+    flex-direction: column;
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: 'Sourse sans Pro', sans-serif;
+  }
+
+  body main {
+    margin-top: 50px;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f1ec;
+  }
+
 }
+
+@media only screen and (min-width: 769px) {
+  body {
+    display: flex;
+    /* flex-flow: row wrap; */
+    /* flex-direction: column; */
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: 'Sourse sans Pro', sans-serif;
+    justify-content: center-around;
+
+  }
+
+  body main {
+    margin-top: 150px;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f4f1ec;
+  }
+}
+

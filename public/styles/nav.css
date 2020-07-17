@@ -1,7 +1,8 @@
-nav {
-  height: 120px;
+/* body nav {
+  height: 100px;
   display: block;
-  background-color: #4056A1;
+  background-color: #fdb024;
+  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
   color: #FFFFFF; 
   padding: 1.5em;
   position: fixed;
@@ -11,4 +12,66 @@ nav {
 
 span {
   font-family: 'Bungee';
+  transform: translate(-50%, -50%);
+} */
+
+
+@media only screen and (max-width: 768px) {
+  body nav {
+    height: 100px;
+    display: flex;
+    background-color: #fdb024;
+    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+    color: #FFFFFF; 
+    padding: 1.5em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    justify-content: space-between;
+  }
+  
+  span {
+    font-family: 'Bungee';
+
+  }
+
+  #compose {
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Source sans Pro', sans-serif;
+    font-size: 20px;
+    align-self: right;
+    background-color: transparent;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  body nav {
+    height: 100px;
+    display: flex;
+    background-color: #4056A1;
+    color: #FFFFFF; 
+    padding: 1.5em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    justify-content: space-between;
+  }
+  
+  span {
+    font-family: 'Bungee';
+
+  }
+
+  #compose {
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Source sans Pro', sans-serif;
+    font-size: 20px;
+    align-items: right;
+    background-color: transparent;
+  }
+
 }

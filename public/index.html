@@ -24,6 +24,8 @@
 
     <link rel="stylesheet" href="/styles/error.css" type="text/css" />
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -35,15 +37,13 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <button type="button" id="compose" onclick="$('.new-tweet').slideDown"><strong>Write</strong> a new tweet</button>
     </nav>
 
     <header class="top-header">
-      <div>
+      <div class="headlogo">
           <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Your Name</h2>
+          <p><strong>Your </strong>Name</p>
       </div>
   </header>
     <!-- Page-specific (main) content here -->
@@ -51,7 +51,7 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <div class="error">
-          <p></p>
+          <p class="errorp"></p>
         </div>
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>

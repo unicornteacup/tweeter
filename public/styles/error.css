@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.error p {
+.error .errorp {
 
   position: absolute;
   left: 50%;

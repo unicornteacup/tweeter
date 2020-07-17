@@ -1,7 +1,6 @@
 .tweets {
   display: flex;
   flex-direction: column;
-
   background-color: #f4f1ec;
   font-family: 'Sourse sans Pro', sans-serif;
   font-weight: 300;
@@ -11,10 +10,12 @@ article:hover {
   box-shadow: 10px 10px lightgray;
   font-weight: 400;
 }
+
 .tweets:hover .user-id {
   display: flex;
   color: salmon;
 }
+
 .tweets:hover h3{
   font-weight: 400;
 }
@@ -45,10 +46,6 @@ article {
   background-color: #f4f1ec;
   margin-right: 8px;
 }
-/* .tweets:hover header .avatar{
-  im 
-  : 400;
-} */
 
 .user-id {
   display: none;

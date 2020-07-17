@@ -40,79 +40,37 @@ $(document).ready(function() {
 
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
-      const latestTweet = createTweetElement(tweet)
-      // console.log(latestTweet)
+      const latestTweet = createTweetElement(tweet);
       $('.tweets').prepend(latestTweet);
     }
-    // console.log(tweets)
   }
 
+  const $button = $('form');
+  $button.submit (function ( event ) {
+    event.preventDefault();
+    console.log($('#tweet-text').val().length)
+    if ($('#tweet-text').val().length < 1) {
+      $('.error').slideDown(400, function(){});
+      $('.error p').text('⚠️ No text present ⚠️');
+    } else if ($('#tweet-text').val().length > 140) {
+      $('.error').slideDown(400, function(){});
+      $('.error p').text('⚠️ Tweet length is over 140 characters ⚠️');
+    }else {
+      $('.error').slideUp(400, function(){});
+      $('.counter').text('140');
+      $('output').css('color', 545149);
+      let newTweet = $('form #tweet-text').serialize();
+      $.post('/tweets', newTweet, function(resultData) { loadTweets(); })
+      .then(function () {
+        $('#tweet-text').val('');
+      })         
+    }
+  });
 
-
-
-    const $button = $('form');
-    $button.submit (function ( event ) {
-      event.preventDefault();
-      console.log($('#tweet-text').val().length)
-      if ($('#tweet-text').val().length < 1) {
-        $('.error').slideDown(400, function(){});
-        $('.error p').text('⚠️ No text present ⚠️');
-      } else if ($('#tweet-text').val().length > 140) {
-        $('.error').slideDown(400, function(){});
-        $('.error p').text('⚠️ Tweet length is over 140 characters ⚠️');
-      }else {
-        $('.error').slideUp(400, function(){});
-        $('.counter').text('140');
-        let newTweet = $('form #tweet-text').serialize();
-        $.post('/tweets', newTweet, function(resultData) { loadTweets(); })
-        .then(function () {
-          $('#tweet-text').val('');
-        })         
-      }
-
-});
-
-// *** WHERE TO PUT THIS
-
-
-
-
-
-  // *** Are any of these right???? ***
-
- 
   const loadTweets = function() {
     $.get("/tweets", function(data, status){
       renderTweets(data);
     });
   };
   loadTweets();
-
-
-  // $(function() {
-  //   const loadTweets = $.ajax('/tweets', { method: 'GET' })
-  //     // console.log(tweets)
-  //     rendertweets(res);
-  
-  //   // loadTweets();
-  // })
-
-  // $(function() {
-  //   const loadTweets = function() {
-  //     $.getJSON('/tweets', tweets, { method: 'GET' })
-  //     console.log(tweets)
-  //     rendertweets(tweets);
-  //   };
-  //   // loadTweets();
-  // })
-
-  // const $tweet = renderTweets(data);
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('#tweets-container').append($tweet);
-
 });
-
-
-// Test / driver code (temporary). Eventually will get this from the server.

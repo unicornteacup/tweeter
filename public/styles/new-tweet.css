@@ -1,39 +1,3 @@
-/* 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-label {
-  font-family: 'Sourse sans Pro', sans-serif;
-}
-
-#tweet-text {
-  display: block;
-  border: none;
-  border-bottom: 3px solid gray;
-  background-color: #f4f1ec;
-  width: 100%;
-  margin-bottom: 15px;
-} 
-
-section div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 50px;
-}
-
-section form div .counter {
-  font-family: 'Bungee';
-}
-
-button {
-  background-color: #4056A1;
-  color: #FFFFFF;
-  font-family: 'Bungee';
-} */
 
 @media only screen and (max-width: 768px) {
   form {

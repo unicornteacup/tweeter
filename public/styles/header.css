@@ -27,8 +27,8 @@
     position: relative;
     display: inline-block;
     flex-direction: column;
-    width: 33vw;
-    height: 33vw;
+    width: 33%;
+    height: 33%;
     background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
     margin-top: 150px;
     margin-left: 50px;
@@ -38,27 +38,14 @@
     text-align: center;
   }
 
+  .headlogo p {
+    margin-top: 10px;
+  }
 
-   .topheader .headlogo {
-    display: block;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    justify-content: center;
-    align-content: center;
-    /* width: 33vw;
-    height: 33vw; */
-    padding: 2%;
-    font-size: 30px;
-    font-family: 'Source sans Pro', sans-serif;
-    font-weight: 300;
+  header > div > img {
+    padding-top: 20px;
   }
 }
 
-  /* .headlogo p:first-word {
-    font-weight: 600;
-  }
 
-} */
+

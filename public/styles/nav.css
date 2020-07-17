@@ -1,20 +1,3 @@
-/* body nav {
-  height: 100px;
-  display: block;
-  background-color: #fdb024;
-  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
-  color: #FFFFFF; 
-  padding: 1.5em;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-span {
-  font-family: 'Bungee';
-  transform: translate(-50%, -50%);
-} */
-
 
 @media only screen and (max-width: 768px) {
   body nav {
@@ -33,7 +16,6 @@ span {
   
   span {
     font-family: 'Bungee';
-
   }
 
   #compose {
@@ -62,7 +44,6 @@ span {
   
   span {
     font-family: 'Bungee';
-
   }
 
   #compose {
@@ -73,5 +54,4 @@ span {
     align-items: right;
     background-color: transparent;
   }
-
 }

@@ -10,33 +10,6 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
-/* body {
-  display: flex;
-
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: 'Sourse sans Pro', sans-serif;
-} */
-
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-/* main {
-  margin-top: 50px;
-  padding-left: 5%;
-  padding-right: 5%;
-  flex-direction: row;
-  align-items: center;
-  background-color: #f4f1ec; */
-/* } */
-
 @media only screen and (max-width: 768px) {
   body {
     display: block;
@@ -56,7 +29,6 @@ html {
     align-items: center;
     background-color: #f4f1ec;
   }
-
 }
 
 @media only screen and (min-width: 769px) {
@@ -69,11 +41,11 @@ html {
     font-size: 24px;
     font-family: 'Sourse sans Pro', sans-serif;
     justify-content: center-around;
-
   }
 
   body main {
     margin-top: 150px;
+    width: 66%;
     padding-left: 5%;
     padding-right: 5%;
     flex-direction: row;
@@ -81,4 +53,3 @@ html {
     background-color: #f4f1ec;
   }
 }
-

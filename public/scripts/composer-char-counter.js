@@ -1,16 +1,18 @@
 $(document).ready(function() {
   
   $('#tweet-text').mouseover(function() {
-    console.log('test');
-  }); 
+  });
 
-  $('#tweet-text').keypress(function() {
-    const tweetChars = $(this).val().length
-    console.log(tweetChars);
-    if (tweetChars > 140) {
-      $('output').css('color', 'red');
-    }
-    $('output').val(140 - tweetChars);
-  }) 
+  $('#tweet-text').on('keyup',function() {
+    const tweetChars = $(this).val().length;
+    const maxCount = 140;
+    const count = $(this).parent().find('output');
+    
+    count.val(maxCount - tweetChars);
+    
+    count.val() < 0 ?  count.css("color", "red") : count.css("color", "black");
+
+
+  });
 
 });

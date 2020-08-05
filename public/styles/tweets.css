@@ -31,7 +31,7 @@ article {
   flex-direction: row;
   align-content: space-between;
   background-color: #f4f1ec;
-  padding: 20px;
+  padding: 10px;
   margin-left: 8px;
   margin-right: 8px;
   justify-content: space-between;
@@ -40,6 +40,7 @@ article {
 
 .tweets header div {
   justify-content: flex-start;
+  padding-bottom: 20px;
 }
 
 .tweets header .avatar{
@@ -80,5 +81,7 @@ article {
   margin-left: 8px;
   font-weight: 300;
   overflow-x: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 

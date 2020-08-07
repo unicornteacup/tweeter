@@ -45,28 +45,29 @@ $(document).ready(function() {
     }
   };
 
-  // Button to submit the new tweet
+  // Button to checkif tweet is >140 or <1 characters and display error if applicable, then submit tweet, reset counter colour and clear text box.
   const $button = $('form');
   $button.submit(function(event) {
     event.preventDefault();
     if ($('#tweet-text').val().length < 1) {
       $('.error').slideDown(400, function() {});
       $('.error p').text('⚠️ No text present ⚠️');
-    } else if ($('#tweet-text').val().length >= 140) {
+    } else if ($('#tweet-text').val().length > 140) {
       $('.error').slideDown(400, function() {});
       $('.error p').text('⚠️ Tweet length is over 140 characters ⚠️');
     } else {
       $('.error').slideUp(400, function() {});
       $('.counter').text('140');
       $('output').css('color', 545149);
+      
       let newTweet = $('form #tweet-text').serialize();
       $.post('/tweets', newTweet, function(resultData) {
         loadTweets();
       })
         .then(function() {
           $(count).css('color', 545149);
-          $('#tweet-text').val('');
         });
+      $('#tweet-text').val('');
     }
   });
 
